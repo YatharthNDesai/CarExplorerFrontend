@@ -1,7 +1,7 @@
 import React from "react"
 import {BrandsComponent} from "./brands-component";
 import {FeaturesComponent} from "./features-component";
-import {createVehicle} from "../service/vehicle-services";
+import {createVehicle} from "../../service/vehicle-services";
 
 export class VehiclesComponent extends React.Component {
 
@@ -26,6 +26,8 @@ export class VehiclesComponent extends React.Component {
         console.log(this.state.numOfCompares)
         return (
             <div className="row">
+
+
                 {this.state.numOfCompares.map(() => {
                         return (
                             <div className="col-4">

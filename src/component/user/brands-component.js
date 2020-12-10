@@ -1,7 +1,7 @@
 import React from "react"
 import Select from 'react-select'
 
-import {getAllBrands} from "../service/brandService";
+import {getAllBrands} from "../../service/brand-services";
 import {ModelsComponent} from "./models-component";
 
 export class BrandsComponent extends React.Component {
@@ -37,7 +37,8 @@ export class BrandsComponent extends React.Component {
             <div>
                 <select onChange={(e) => this.setState({
                     brand: e.target.value
-                })}>
+                })} defaultValue={(e) => e.target.value} >
+                    <option value="No selection">No Selection</option>
                     {this.state.list.map((brand) => {
                         return (
                             <option key={brand.brandId} value={brand.brandName}>{brand.brandName}</option>

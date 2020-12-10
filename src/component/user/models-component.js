@@ -1,8 +1,8 @@
 import React from "react"
 import {VehiclesComponent} from "./vehicles-component";
 import {FeaturesComponent} from "./features-component";
-import {createVehicle} from "../service/vehicle-services";
-import {addFeaturesToVehicle} from "../service/featuresService";
+import {createVehicle} from "../../service/vehicle-services";
+import {addFeaturesToVehicle} from "../../service/featuresService";
 
 export class ModelsComponent extends React.Component {
     constructor(props) {
@@ -41,31 +41,34 @@ export class ModelsComponent extends React.Component {
                 }
                 }
                 >
+                    <option value="No selection">No Selection</option>
                     {this.props.modelList.map((model) =>
                         <option key={model.modelId} value={model.modelName}>{model.modelName}</option>)}
                 </select>
                 }
-                {
+                {this.state.model !== "" &&
                     <select onChange={(e) => {
                         this.setState({
                             color: e.target.value
                         })
                     }
                     }>
+                        <option value="No selection">No Selection</option>
                         <option value="Red">Red</option>
                         <option value="Blue">Blue</option>
                         <option value="Green">Green</option>
                         <option value="Yellow">Yellow</option>
 
                     </select>
-                    // <h1>{model}</h1>
                 }
                 {console.log("Current model", model)}
-                <FeaturesComponent
-                createVehicle={this.createVehicle}
-                model={model}
-                color={this.state.color}
-                />
+
+                {this.state.color !== "" &&
+                    <FeaturesComponent
+                    createVehicle={this.createVehicle}
+                    model={model}
+                    color={this.state.color}
+                />}
 
 
 

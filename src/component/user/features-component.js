@@ -1,5 +1,5 @@
 import React from "react"
-import {getAllFeatures} from "../service/featuresService";
+import {getAllFeatures} from "../../service/featuresService";
 
 export class FeaturesComponent extends React.Component {
 
@@ -34,7 +34,7 @@ export class FeaturesComponent extends React.Component {
                         <option value={f.featureName}>{f.featureName}</option>
                     )}
                 </select>
-                <button
+                <button className="btn btn-success"
                     onClick={() => this.props.createVehicle({color: this.props.color}, this.props.model.modelId, this.state.featuresToAdd)}>Save
                     Vehicle
                 </button>

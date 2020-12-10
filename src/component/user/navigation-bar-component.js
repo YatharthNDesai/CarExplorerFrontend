@@ -1,5 +1,5 @@
 import React from "react";
-import {getBrandByName} from "../service/brandService";
+import {getBrandByName} from "../../service/brand-services";
 import {bindReporter} from "web-vitals/dist/lib/bindReporter";
 
 export class NavigationBarComponent extends React.Component {
