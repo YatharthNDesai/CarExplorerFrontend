@@ -14,8 +14,7 @@ export class NavigationBarComponent extends React.Component {
     getBrandByName(name) {
         getBrandByName(name).
         then(brand => {
-            console.log(brand)
-            if(brand !== null) {
+            if(brand !== undefined) {
                 this.setState({
                     name: brand.brandName
                 }
@@ -30,11 +29,11 @@ export class NavigationBarComponent extends React.Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <form className="form-inline my-6 my-lg-6">
-                        <input className="form-control mr-sm-6" type="search" placeholder="Search" aria-label="Search"
+                    <form className="form-inline p-2">
+                        <input className="form-control" type="search" placeholder="Search" aria-label="Search"
                                onChange={(e) => brand = e.target.value}
                         />
-                        <button className="btn btn-outline-success my-2 my-sm-4"  type="button"
+                        <button className="btn btn-outline-success p-2"  type="button"
                         onClick={() => this.getBrandByName(brand)}
                         >Search</button>
                     </form>

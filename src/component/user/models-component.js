@@ -2,14 +2,15 @@ import React from "react"
 import {VehiclesComponent} from "./vehicles-component";
 import {FeaturesComponent} from "./features-component";
 import {createVehicle} from "../../service/vehicle-services";
-import {addFeaturesToVehicle} from "../../service/featuresService";
+import {addFeaturesToVehicle} from "../../service/feature-services";
 
 export class ModelsComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             model: "",
-            color:""
+            color:"",
+            cost:0
         }
     }
 
@@ -30,11 +31,14 @@ export class ModelsComponent extends React.Component {
         let model = this.props.modelList.filter((model) =>
             model.modelName === this.state.model
         )[0]
+        // let cost = model.modelPrice
         return (
 
-            <div>
+            <div className="form-group">
                 {this.props.modelList.length !== 0 &&
-                <select onChange={(e) => {
+                <select
+                    className="form-control"
+                    onChange={(e) => {
                     this.setState({
                         model: e.target.value
                     })
@@ -46,8 +50,11 @@ export class ModelsComponent extends React.Component {
                         <option key={model.modelId} value={model.modelName}>{model.modelName}</option>)}
                 </select>
                 }
+                <br/>
                 {this.state.model !== "" &&
-                    <select onChange={(e) => {
+                    <select
+                        className="form-control"
+                        onChange={(e) => {
                         this.setState({
                             color: e.target.value
                         })
@@ -62,17 +69,13 @@ export class ModelsComponent extends React.Component {
                     </select>
                 }
                 {console.log("Current model", model)}
-
+            <br/>
                 {this.state.color !== "" &&
                     <FeaturesComponent
                     createVehicle={this.createVehicle}
                     model={model}
                     color={this.state.color}
                 />}
-
-
-
-
             </div>
         );
     }

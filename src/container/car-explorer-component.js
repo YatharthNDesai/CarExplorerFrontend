@@ -11,15 +11,7 @@ export class CarExplorerComponent extends React.Component {
         super();
         this.state = {
             compares: [0],
-            component:"user"
-        }
-    }
-
-    incrementCompare() {
-        if (this.state.compares.length < 3) {
-            this.setState({
-                compares: [...this.state.compares,0]
-            })
+            component: "user"
         }
     }
 
@@ -40,27 +32,27 @@ export class CarExplorerComponent extends React.Component {
 
 
                 <div className="row">
-                <ul className="nav nav-tabs" style={{display: "inline"}}>
-                    <li className="nav-item" style={{cursor: "pointer", float: "left"}}>
-                        <a className="nav-link" onClick={() =>
-                            this.setState({
-                                component: 'user'
-                            })
-                        }>
-                            User Tab
-                        </a>
-                    </li>
+                    <ul className="nav nav-tabs" style={{display: "inline"}}>
+                        <li className="nav-item" style={{cursor: "pointer", float: "left"}}>
+                            <a className="nav-link" onClick={() =>
+                                this.setState({
+                                    component: 'user'
+                                })
+                            }>
+                                User Tab
+                            </a>
+                        </li>
 
-                    <li className="nav-item" style={{cursor: "pointer", float: "left"}}>
-                        <a className="nav-link" onClick={() =>
-                            this.setState({
-                                component: 'admin'
-                            })
-                        }>
-                            Admin Tab
-                        </a>
-                    </li>
-                </ul>
+                        <li className="nav-item" style={{cursor: "pointer", float: "left"}}>
+                            <a className="nav-link" onClick={() =>
+                                this.setState({
+                                    component: 'admin'
+                                })
+                            }>
+                                Admin Tab
+                            </a>
+                        </li>
+                    </ul>
                 </div>
 
                 <br/>
@@ -68,10 +60,7 @@ export class CarExplorerComponent extends React.Component {
                     {
                         this.state.component === "user" &&
                         <>
-                            <VehiclesComponent numOfCompares={this.state.compares}/>
-                            <button onClick={() =>
-                                this.incrementCompare()
-                            }>+</button>
+                            <VehiclesComponent/>
                         </>
                     }
 

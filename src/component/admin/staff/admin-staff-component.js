@@ -26,6 +26,10 @@ export class AdminStaffComponent extends React.Component{
             }))
     }
 
+    createStaff() {
+
+    }
+
     render() {
         return(
             <ul className="list-group">

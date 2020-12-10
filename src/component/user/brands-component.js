@@ -27,6 +27,8 @@ export class BrandsComponent extends React.Component {
             )
     }
 
+
+
     render() {
 
         let brand = this.state.list.filter((brand) =>
@@ -34,8 +36,9 @@ export class BrandsComponent extends React.Component {
         )[0]
         return (
 
-            <div>
-                <select onChange={(e) => this.setState({
+            <div className="form-group">
+                <select className="form-control"
+                    onChange={(e) => this.setState({
                     brand: e.target.value
                 })} defaultValue={(e) => e.target.value} >
                     <option value="No selection">No Selection</option>
@@ -46,9 +49,13 @@ export class BrandsComponent extends React.Component {
                     })}
                 </select>
                 {brand !== undefined &&
+                    <>
+                        <br/>
                 <ModelsComponent
                     modelList={brand.modelList}
                 />
+                <br/>
+                </>
                 }
 
             </div>

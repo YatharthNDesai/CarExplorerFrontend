@@ -43,6 +43,10 @@ export class DisplayVehicleElementComponent extends React.Component {
                         {/*<label>{this.props.vehicle.color}</label>*/}
                     </div>
                     <div className="form-group">
+                        <h3 htmlFor="exampleInputEmail1">Cost : {this.props.vehicle.vehiclePrice}</h3>
+                        {/*<label>{this.props.vehicle.color}</label>*/}
+                    </div>
+                    <div className="form-group">
                         <h3>Features : </h3>
                         {
                             this.props.vehicle.featureList.length !== 0 &&
